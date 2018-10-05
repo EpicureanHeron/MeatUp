@@ -9,10 +9,7 @@ const app = express();
 
 // Define middleware here
 
-// Use morgan logger for logging requests
-// app.use(logger("dev"));
 
-//
 // Use body-parser for handling form submissions
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,12 +23,15 @@ if (process.env.NODE_ENV === "production") {
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/NYT";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
+
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
 // Define API routes here
+
 // app.use(routes);
+//testing
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
