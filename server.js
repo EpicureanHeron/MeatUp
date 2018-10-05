@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-
+//test
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/NYT";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
