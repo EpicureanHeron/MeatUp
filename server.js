@@ -1,8 +1,8 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-//const routes = require("./routes");
-// var logger = require("morgan");
+const routes = require("./routes");
+
 var mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -31,7 +31,7 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
 // Define API routes here
-// app.use(routes);
+ app.use(routes);
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
