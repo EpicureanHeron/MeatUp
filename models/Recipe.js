@@ -7,22 +7,41 @@ var Schema = mongoose.Schema;
 // This is similar to a Sequelize model
 const RecipeSchema = new Schema({
   // `title` is required and of type String
-  title: {
+  recipeName: {
     type: String,
     required: true
   },
   // `link` is required and of type String
-  link: {
+  image: {
     type: String,
     required: true
   },
 
-  date: { 
-    type: Date, 
+  description: { 
+    type: String, 
     
    required: true
    },
 
+   ingredients: {
+     type: String,
+     required: true,
+   },
+   primaryMeat:{
+     type:String,
+     enum: ['Pork', 'Beef', 'Fish', 'Chicken', 'Turkey', 'Other', 'Lamb'],
+     required: true,
+   },
+   count:{
+    type: Number,
+    default: 0,
+    required: true
+   },
+   //this may not need to be a string 
+   user:{
+     type: String,
+     required: true,
+   }
 
 });
 
