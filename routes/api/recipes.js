@@ -7,9 +7,9 @@ router.route("/")
   .post(controller.createRecipe);
 
 router.route("/:id")
-
-  .delete(controller.removeRecipe);
-
+  .get(controller.findByIdRecipe)
+  .delete(controller.removeRecipe)
+  .put(controller.updateRecipe)
      
 
 module.exports = router;
