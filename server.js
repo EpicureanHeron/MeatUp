@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //test
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/NYT";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/MeatUp";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB

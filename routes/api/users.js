@@ -4,12 +4,13 @@ const controller = require("../../controllers/controller");
 
 router.route("/")
   .get(controller.findAllUser)
-  .post(controller.createUser);
+  .post(controller.createUser)
 
 router.route("/:id")
+  .get(controller.findByIdUser)
+  .delete(controller.removeUser)
+  .put(controller.updateUser)
 
-  .delete(controller.removeUser);
 
-     
 
 module.exports = router;
