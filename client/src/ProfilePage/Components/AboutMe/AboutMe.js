@@ -1,15 +1,19 @@
 import React from "react";
-import Container1 from "./Container1";
-import Container2 from "./Container2";
+import AboutField from "./AboutField";
+import RecipeField from "./RecipeField";
 
 
 const About = () => (
     <div>
-        <img src="../../Images/chickenpotpie1.jpg" />
-    
-    <AboutField style={{  }}>
+        <UserField backgroundImage="../../Images/chickenpotpie1.jpg">
 
-    </AboutField>
+        </UserField>
+        <AboutField style={{  }}>
+
+        </AboutField>
+        <RecipeField>
+
+        </RecipeField>
     </div>
 );
 
