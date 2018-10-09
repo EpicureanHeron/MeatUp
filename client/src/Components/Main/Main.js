@@ -1,7 +1,7 @@
 import React from "react";
-import AboutMe from "./AboutMe";
-import MyRecipe from "./MyRecipe";
-import MyProfile from "./MyProfile";
+import AboutMe from "../AboutMe";
+import MyRecipe from "../MyRecipe";
+import MyProfile from "../MyProfile";
 
 const Main = () => (
     <div>

@@ -1,8 +1,8 @@
 import React from "react";
-import "./MyRecipe.css";
+// import "./MyRecipe.css";
 
 
-class EssayForm extends React.Component {
+class MyRecipe extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -35,7 +35,9 @@ class EssayForm extends React.Component {
     }
   }
   
-  ReactDOM.render(
-    <EssayForm />,
-    document.getElementById('app')
-  );
+  // ReactDOM.render(
+  //   <EssayForm />,
+  //   document.getElementById('app')
+  // );
+
+  export default MyRecipe;
