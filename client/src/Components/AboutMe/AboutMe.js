@@ -1,7 +1,7 @@
 import React from "react";
 import "./AboutMe.css";
 
-class EssayForm extends React.Component {
+class AboutMe extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -34,7 +34,9 @@ class EssayForm extends React.Component {
     }
   }
   
-  ReactDOM.render(
-    <EssayForm />,
-    document.getElementById('app')
-  );
+  // ReactDOM.render(
+  //   <EssayForm />,
+  //   document.getElementById('app')
+  // );
+
+  export default AboutMe;
