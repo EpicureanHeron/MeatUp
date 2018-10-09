@@ -5,7 +5,21 @@ const db = require("../models");
 // Defining methods for the Article
 module.exports = {
 
+
+  //User Validation 
+
+  //USER VALIDATION STUFF NEEDS TO GO HERE
+
    //USER QUERIES
+
+  loginUser: function(req, res) {
+    db.User
+
+    //THIS IS PROBABLY WHERE I SHOULD DO THE VALDIATION
+    .find(req.query)
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+  },
 
   findAllUser: function(req, res) {
   
@@ -77,5 +91,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
+
  
 };

@@ -49,4 +49,8 @@ export default {
     updateUser: function (id, update) {
         return axios.put("/api/users/" + id, update);
     },
+    //LOGIN Path
+    loginUser: function(userData){
+        return axios.get("/api/login", userData)
+    }
 };
