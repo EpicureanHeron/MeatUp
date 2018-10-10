@@ -2,10 +2,13 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
-
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+
+
+
 
 // Define middleware here
 
@@ -33,6 +36,12 @@ mongoose.connect(MONGODB_URI);
 // Define API routes here
 //passport information
 //https://codeburst.io/node-js-by-example-part-3-31a29f5d7e9c
+
+
+
+
+
+
  app.use(routes);
 // Send every other request to the React app
 // Define any API routes before this runs

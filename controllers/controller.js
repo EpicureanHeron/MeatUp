@@ -1,5 +1,9 @@
 const db = require("../models");
 
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const ADMIN = 'admin';
+const ADMIN_PASSWORD = 'password';
 
 
 // Defining methods for the Article
@@ -13,12 +17,30 @@ module.exports = {
    //USER QUERIES
 
   loginUser: function(req, res) {
-    db.User
+    passport.use(new LocalStrategy((username, password, done) => {
+      console.log("passport triggered")
+      if (username === ADMIN && password === ADMIN_PASSWORD) {
+        done(null, 'TOKEN');
+        return;
+      }
+      done(null, false);
+    }));
+    app.post(
+      '/login',
+      passport.authenticate('local', { session: false }),
+      (req, res) => {
+        res.send({
+          token: req.user,
+        });
+      },
+    );
 
     //THIS IS PROBABLY WHERE I SHOULD DO THE VALDIATION
-    .find(req.query)
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
+    // .find(req.query)
+    // .then(dbModel => res.json(dbModel))
+    // .catch(err => res.status(422).json(err));
+
+
   },
 
   findAllUser: function(req, res) {
@@ -34,6 +56,14 @@ module.exports = {
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  findByUsername: function(req, res) {
+    console.log(req)
+
+    db.User
+     .findOne({username: req})
+     .then(dbModel => res.json(dbModel))
+     .catch(err => res.status(422).json(err));
   },
   createUser: function(req, res) {
     console.log(req.body)

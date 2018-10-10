@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Navbar.css";
+import API from "../../utils/API"
 
 
 class Navbar extends Component {
@@ -22,25 +23,36 @@ class Navbar extends Component {
     });
   };
 
+  componentDidMount = () => {
+    API.getAllUsers() 
+    .then(res=> console.log(res.data)) 
+  }
+
   handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
-    if (!this.state.firstName || !this.state.lastName) {
-      alert("Fill out your first and last name please!");
-    } else if (this.state.password.length < 6) {
-      alert(
-        `Choose a more secure password ${this.state.firstName} ${this.state
-          .lastName}`
-      );
-    } else {
-      alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
-    }
+    // if (!this.state.firstName || !this.state.lastName) {
+    //   alert("Fill out your first and last name please!");
+    // } else if (this.state.password.length < 6) {
+    //   alert(
+    //     `Choose a more secure password ${this.state.firstName} ${this.state
+    //       .lastName}`
+    //   );
+    // } else {
+    //   alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
+    // }
 
     this.setState({
-      firstName: "",
-      lastName: "",
+      username: "",
+    
       password: ""
     });
+    console.log("submit clicked")
+    API.loginUser({
+      "username" : this.state.username,
+      "password" : this.state.password
+    })
+
   };
 
 

@@ -51,6 +51,6 @@ export default {
     },
     //LOGIN Path
     loginUser: function(userData){
-        return axios.get("/api/login", userData)
+        return axios.post("/api/login/", userData)
     }
 };
