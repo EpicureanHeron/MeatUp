@@ -40,28 +40,28 @@ class Discover extends Component {
   };
 
   loadNextDog = () => {
-    API.getRandomDog()
-      .then(res =>
-        this.setState({
-          image: res.data.message
-        })
-      )
-      .catch(err => console.log(err));
-  };
-
+    
+    API.getAllRecipes()
+      .then(res => {
+        let index = Math.floor(Math.random() * res.data.length);
+     this.setState({
+       image: res.data[index].image
+      });
+    })
+  }
   render() {
     return (
       <div>
-        <h1 className="text-center">Make New Friends</h1>
+        <h1 className="text-center">MeatUp</h1>
         <h3 className="text-center">
-          Thumbs up on any pups you'd like to meet!
+          Like some meat
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
         <h1 className="text-center">
-          Made friends with {this.state.matchCount} pups so far!
+          You've liked {this.state.matchCount} meats!
         </h1>
         <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
-          Yay! That Pup Liked You Too!!!
+          Meat!
         </Alert>
       </div>
     );
