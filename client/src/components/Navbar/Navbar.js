@@ -6,7 +6,7 @@ import "./Navbar.css";
 const Navbar = props => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <Link className="navbar-brand" to="/">
-      Pupster
+      MeatUp
     </Link>
     <div>
       <ul className="navbar-nav">
@@ -14,12 +14,12 @@ const Navbar = props => (
           <Link
             to="/"
             className={
-              window.location.pathname === "/" || window.location.pathname === "/about"
+              window.location.pathname === "/" || window.location.pathname === "/home"
                 ? "nav-link active"
                 : "nav-link"
             }
           >
-            About
+            Home
           </Link>
         </li>
         <li className="nav-item">
@@ -31,7 +31,7 @@ const Navbar = props => (
                 : "nav-link"
             }
           >
-            Discover
+            Recipe Search
           </Link>
         </li>
         <li className="nav-item">
@@ -43,7 +43,7 @@ const Navbar = props => (
                 : "nav-link"
             }
           >
-            Search
+            Profile
           </Link>
         </li>
       </ul>
