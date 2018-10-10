@@ -26,14 +26,9 @@
   background: #43A047;
 }
 
-<<<<<<< HEAD
-.pick::after {
-  content: "\f164";
-=======
 /* Not sure why this won't display the icon */
 .pick::after {
   content: "\f2e7";
->>>>>>> master
 }
 
 .pick:hover::after, .pass:hover::after {

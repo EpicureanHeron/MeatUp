@@ -11,19 +11,19 @@ class Picture extends Component {
 
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
-    this.loadTopFive()
+    // this.loadTopFive()
   }
 
 
-  loadTopFive = () => {
-    API.getAllRecipes()
-      .then(res =>
-        this.setState({
-          image: res.data.message
-        })
-      )
-      .catch(err => console.log(err));
-  };
+  // loadTopFive = () => {
+  //   API.getAllRecipes()
+  //     .then(res =>
+  //       this.setState({
+  //         image: res.data.message
+  //       })
+  //     )
+  //     .catch(err => console.log(err));
+  // };
 
   render() {
     return (

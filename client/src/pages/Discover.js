@@ -12,7 +12,7 @@ class Discover extends Component {
 
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
-    this.loadNextDog();
+    this.loadNextRecipe();
   }
 
   handleBtnClick = event => {
@@ -34,12 +34,12 @@ class Discover extends Component {
       // If we thumbs down'ed the dog, we haven't matched with it
       newState.match = false;
     }
-    // Replace our component's state with newState, load the next dog image
+    // Replace our component's state with newState, load the next recipe image
     this.setState(newState);
-    this.loadNextDog();
+    this.loadNextRecipe();
   };
 
-  loadNextDog = () => {
+  loadNextRecipe = () => {
     
     API.getAllRecipes()
       .then(res => {
