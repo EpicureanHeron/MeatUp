@@ -17,23 +17,24 @@ module.exports = {
    //USER QUERIES
 
   loginUser: function(req, res) {
+    console.log(req.body)
     passport.use(new LocalStrategy((username, password, done) => {
       console.log("passport triggered")
       if (username === ADMIN && password === ADMIN_PASSWORD) {
         done(null, 'TOKEN');
         return;
       }
-      done(null, false);
+      app.post(
+        '/login',
+        passport.authenticate('local', { session: false }),
+        (req, res) => {
+          res.send({
+            token: req.user,
+          });
+        },
+      );
     }));
-    app.post(
-      '/login',
-      passport.authenticate('local', { session: false }),
-      (req, res) => {
-        res.send({
-          token: req.user,
-        });
-      },
-    );
+ 
 
     //THIS IS PROBABLY WHERE I SHOULD DO THE VALDIATION
     // .find(req.query)
