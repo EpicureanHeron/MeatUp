@@ -26,7 +26,7 @@ class MyRecipe extends React.Component {
       return (
         <div className="example">
           <form onSubmit={this.handleSubmit}>
-            <span>Essay #1</span>
+            <span>MY RECIPES</span>
               <textarea value={this.state.value} onChange={this.handleChange} cols={40} rows={10} />
             <input type="submit" value="Submit" />
           </form>
