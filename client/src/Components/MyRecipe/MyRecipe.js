@@ -1,5 +1,5 @@
 import React from "react";
-// import "./MyRecipe.css";
+// import API from "../../utils/API";
 
 
 class MyRecipe extends React.Component {
@@ -16,7 +16,7 @@ class MyRecipe extends React.Component {
     handleChange(event) {
       this.setState({value: event.target.value});
     }
-  
+    // Grabbing data from forms and passing that to api.saveRecipe
     handleSubmit(event) {
       alert('An essay was submitted: ' + this.state.value);
       event.preventDefault();
