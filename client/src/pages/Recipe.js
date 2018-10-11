@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Card from "../components/Card";
+import TopMeat from "../components/TopMeat";
 
 
 class Recipe extends Component {
@@ -50,6 +51,18 @@ class Recipe extends Component {
       });
     })
   }
+
+  loadTopFive = () => {
+
+    API.getAllRecipes()
+       .then(res => {
+         let index = Math.floor(Math.random() - res.data.length);
+          this.setState({
+            count: res.data[index].count 
+      })
+       })
+
+  }
   render() {
     return (
       <div>
@@ -63,6 +76,7 @@ class Recipe extends Component {
         </h1>
         <h1>
           These are the Top 5 Meatcipes!
+        <TopMeat image={this.state.image} />
         </h1>
       </div>
     );
