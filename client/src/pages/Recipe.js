@@ -16,7 +16,7 @@ class Recipe extends Component {
     count: 0
   };
 
-  // When the component mounts, load the next dog to be displayed
+  // When the component mounts, load the next recipie to be displayed
   componentDidMount() {
     this.loadNextRecipe();
   }
@@ -72,7 +72,7 @@ class Recipe extends Component {
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
         <h1 className="text-center">
-          You've liked {this.state.matchCount} meats!
+          You've liked {this.state.count} meats!
         </h1>
         <h1>
           These are the Top 5 Meatcipes!

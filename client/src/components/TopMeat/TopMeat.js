@@ -7,7 +7,7 @@ const TopMeat = props => (
     style={{
       backgroundImage: props.image ? `url(${props.image})` : "none"
     }}
-  >
+    >
   </div>
 );
 
