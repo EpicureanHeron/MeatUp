@@ -42,7 +42,7 @@ class Discover extends Component {
     // Replace our component's state with newState, load the next dog image
     this.setState(newState);
     this.loadNextDog();
-    this.setState(newState.idTag)
+    // this.setState(newState.idTag)
   };
 
   loadNextDog = () => {
