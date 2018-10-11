@@ -7,7 +7,9 @@ class Discover extends Component {
   state = {
     image: "",
     match: false,
-    matchCount: 0
+    matchCount: 0,
+    count: 0
+    // idTag: ""
   };
 
   // When the component mounts, load the next dog to be displayed
@@ -24,8 +26,11 @@ class Discover extends Component {
 
     if (btnType === "pick") {
       // Set newState.match to either true or false depending on whether or not the dog likes us (1/5 chance)
-      newState.match = 1 === Math.floor(Math.random() * 5) + 1;
-
+      // newState.match = 1 === Math.floor(Math.random() * 5) + 1;
+      this.loadNextDog()
+      API.updateRecipe()
+      // idTag = res.data._id
+      
       // Set newState.matchCount equal to its current value or its current value + 1 depending on whether the dog likes us
       newState.matchCount = newState.match
         ? newState.matchCount + 1
@@ -37,6 +42,7 @@ class Discover extends Component {
     // Replace our component's state with newState, load the next dog image
     this.setState(newState);
     this.loadNextDog();
+    this.setState(newState.idTag)
   };
 
   loadNextDog = () => {
@@ -45,8 +51,11 @@ class Discover extends Component {
       .then(res => {
         let index = Math.floor(Math.random() * res.data.length);
      this.setState({
-       image: res.data[index].image
+       image: res.data[index].image,
+       id: res.data[index]._id,
+       count: res.data[index].count
       });
+      
     })
   }
   render() {
@@ -56,16 +65,18 @@ class Discover extends Component {
         <h3 className="text-center">
           Like some meat
         </h3>
-        <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
+        <Card image={this.state.image} handleBtnClick={this.handleBtnClick} id={this.state.id}/>
         <h1 className="text-center">
           You've liked {this.state.matchCount} meats!
         </h1>
         <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
           Meat!
         </Alert>
+        <Alert id={this.state.id}C>ID: </Alert>
       </div>
     );
   }
+
 }
 
 export default Discover;
