@@ -30,7 +30,7 @@ class Recipe extends Component {
 
     if (btnType === "pick") {
       // Update recipe count depending on wether or not the user likes the meat
-      newState.count = + 1;
+      newState.count = + 1
       
     } else {
       // If we thumbs down'ed the Meat, we haven't matched with it
@@ -52,17 +52,17 @@ class Recipe extends Component {
     })
   }
 
-  loadTopFive = () => {
+  // loadTopFive = () => {
 
-    API.getAllRecipes()
-       .then(res => {
-         let index = Math.floor(Math.random() - res.data.length);
-          this.setState({
-            count: res.data[index].count 
-      })
-       })
+  //   API.getAllRecipes()
+  //      .then(res => {
+  //        let index = Math.floor(Math.random() - res.data.length);
+  //         this.setState({
+  //           count: res.data[index].count 
+  //     })
+  //      })
 
-  }
+  // }
   render() {
     return (
       <div>
