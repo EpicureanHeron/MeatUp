@@ -47,8 +47,11 @@ class Recipe extends Component {
       .then(res => {
         let index = Math.floor(Math.random() * res.data.length);
      this.setState({
-       image: res.data[index].image
+       image: res.data[index].image,
+       id: res.data[index]._id,
+       count: res.data[index].count
       });
+      
     })
   }
 
@@ -70,7 +73,7 @@ class Recipe extends Component {
         <h3 className="text-center">
           Like some meat
         </h3>
-        <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
+        <Card image={this.state.image} handleBtnClick={this.handleBtnClick} id={this.state.id}/>
         <h1 className="text-center">
           You've liked {this.state.count} meats!
         </h1>
@@ -81,6 +84,7 @@ class Recipe extends Component {
       </div>
     );
   }
+
 }
 
 export default Recipe
