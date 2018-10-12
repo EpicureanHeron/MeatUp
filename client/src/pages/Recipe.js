@@ -1,20 +1,24 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Card from "../components/Card";
-import Alert from "../components/Alert";
+import TopMeat from "../components/TopMeat";
 
-class Discover extends Component {
+
+class Recipe extends Component {
   state = {
+    _id: "",
+    user: "",
+    recipeName: "",
     image: "",
-    match: false,
-    matchCount: 0,
+    description: "",
+    indgredients: "",
+    primaryMeat: "",
     count: 0
-    // idTag: ""
   };
 
-  // When the component mounts, load the next dog to be displayed
+  // When the component mounts, load the next recipie to be displayed
   componentDidMount() {
-    this.loadNextDog();
+    this.loadNextRecipe();
   }
 
   handleBtnClick = event => {
@@ -25,27 +29,19 @@ class Discover extends Component {
     const newState = { ...this.state };
 
     if (btnType === "pick") {
-      // Set newState.match to either true or false depending on whether or not the dog likes us (1/5 chance)
-      // newState.match = 1 === Math.floor(Math.random() * 5) + 1;
-      this.loadNextDog()
-      API.updateRecipe()
-      // idTag = res.data._id
+      // Update recipe count depending on wether or not the user likes the meat
+      newState.count = + 1;
       
-      // Set newState.matchCount equal to its current value or its current value + 1 depending on whether the dog likes us
-      newState.matchCount = newState.match
-        ? newState.matchCount + 1
-        : newState.matchCount;
     } else {
-      // If we thumbs down'ed the dog, we haven't matched with it
-      newState.match = false;
+      // If we thumbs down'ed the Meat, we haven't matched with it
+      newState.count = - 1;
     }
-    // Replace our component's state with newState, load the next dog image
+    // Replace our component's state with newState, load the next recipe image
     this.setState(newState);
-    this.loadNextDog();
-    // this.setState(newState.idTag)
+    this.loadNextRecipe();
   };
 
-  loadNextDog = () => {
+  loadNextRecipe = () => {
     
     API.getAllRecipes()
       .then(res => {
@@ -58,6 +54,18 @@ class Discover extends Component {
       
     })
   }
+
+  loadTopFive = () => {
+
+    API.getAllRecipes()
+       .then(res => {
+         let index = Math.floor(Math.random() - res.data.length);
+          this.setState({
+            count: res.data[index].count 
+      })
+       })
+
+  }
   render() {
     return (
       <div>
@@ -67,16 +75,16 @@ class Discover extends Component {
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} id={this.state.id}/>
         <h1 className="text-center">
-          You've liked {this.state.matchCount} meats!
+          You've liked {this.state.count} meats!
         </h1>
-        <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
-          Meat!
-        </Alert>
-        <Alert id={this.state.id}C>ID: </Alert>
+        <h1>
+          These are the Top 5 Meatcipes!
+        <TopMeat image={this.state.image} />
+        </h1>
       </div>
     );
   }
 
 }
 
-export default Discover;
+export default Recipe
