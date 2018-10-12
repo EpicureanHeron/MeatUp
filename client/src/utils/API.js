@@ -20,8 +20,9 @@ export default {
         return axios.post("/api/recipes/", recipeJSON);
     },
     // Updates recipe based on the MongoDB passed to it 
-    updateRecipe: function (id, update) {
-        return axios.put("/api/recipes/" + id, update);
+    updateRecipe: function (id, plusorminus) {
+        const incrementOrDecrement = plusorminus === 1 ? 'increment' : 'decrement'
+        return axios.put("/api/recipes/" + id + '/' + incrementOrDecrement);
     },
 
     // USERS API CALLS
