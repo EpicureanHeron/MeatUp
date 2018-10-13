@@ -1,7 +1,7 @@
 import React from "react";
 import ImageUploader from 'react-images-upload';
 
-class MyProfile extends React.Component {
+class UserPic extends React.Component {
  
     constructor(props) {
         super(props);
@@ -29,7 +29,7 @@ class MyProfile extends React.Component {
 }
 
 
-export default MyProfile;
+export default UserPic;
 
 
 // class MyProfile extends React.Component {
