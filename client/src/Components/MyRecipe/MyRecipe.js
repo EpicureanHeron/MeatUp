@@ -6,7 +6,12 @@ import API from "../../utils/API";
 class MyRecipe extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      recipeName: '',
+      description: '',
+      ingredients: '',
+      primaryMeats: '',
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,10 +21,28 @@ class MyRecipe extends React.Component {
     this.setState({value: event.target.value});
   }
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
+  handleRecipeNameChange = event => {
+    this.setState({recipeName: event.target.value});
   }
+
+  handleDescriptionChange = event => {
+    this.setState({description: event.target.value});
+  }
+
+  handleIngredientsChange = event => {
+    this.setState({ingredients: event.target.value});
+  }
+
+  handlePrimaryMeatsChange = event => {
+    this.setState({recipeName: event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    API.saveUser({recipeName: this.state.recipeName, description: this.state.description, ingredients: this.state.ingredients, primaryMeats: this.state.primaryMeats})
+    .then(() => alert('Success!'))
+  }
+
 
   render() {
     return (
@@ -28,20 +51,20 @@ class MyRecipe extends React.Component {
           Recipe Name:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Submit" />
+        {/* <input type="submit" value="Submit" /> */}
         <label>
           Description:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Submit" />
+        {/* <input type="submit" value="Submit" /> */}
         <label>
           Ingredients:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <textarea type="text" value={this.state.value} onChange={this.handleChange} ></ textarea>
         </label>
-        <input type="submit" value="Submit" />
+        {/* <input type="submit" value="Submit" /> */}
         <label>
           Primary Meats:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <textarea type="text" value={this.state.value} onChange={this.handleChange} ></ textarea>
         </label>
         <input type="submit" value="Submit" />
       </form>

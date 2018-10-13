@@ -2,15 +2,12 @@ import React from "react";
 import AboutMe from "../AboutMe";
 import MyRecipe from "../MyRecipe";
 import MyProfile from "../MyProfile";
-// import "../Main.css";
+import "./UserInfo.css";
 
-const Main = () => (
+const UserInfo = () => (
     <div>
         <MyProfile></MyProfile>
         <AboutMe></AboutMe>
-            {
-                <span>x</span>
-            }
         <MyRecipe></MyRecipe>
     </div>
 
@@ -18,4 +15,4 @@ const Main = () => (
 
 
 
-export default Main;
+export default UserInfo;
