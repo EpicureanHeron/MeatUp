@@ -48,22 +48,22 @@ class MyRecipe extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Recipe Name:
+          RECIPE NAME:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
         {/* <input type="submit" value="Submit" /> */}
         <label>
-          Description:
+          DESCRIPTION:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
         {/* <input type="submit" value="Submit" /> */}
         <label>
-          Ingredients:
+          INGREDIENTS:
           <textarea type="text" value={this.state.value} onChange={this.handleChange} ></ textarea>
         </label>
         {/* <input type="submit" value="Submit" /> */}
         <label>
-          Primary Meats:
+          PRIMARY MEATS:
           <textarea type="text" value={this.state.value} onChange={this.handleChange} ></ textarea>
         </label>
         <input type="submit" value="Submit" />

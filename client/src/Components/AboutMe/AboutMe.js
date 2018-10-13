@@ -29,6 +29,8 @@ class AboutMe extends React.Component {
 
   handleAboutChange = event => {
     this.setState({about: event.target.about})
+    console.log("Changed!");
+    this.props.handleAboutChange(event.target.value)
   }
 
   handleSubmit(event) {
@@ -44,19 +46,19 @@ class AboutMe extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
+          NAME:
           <input type="text" value={this.state.name} onChange={this.handleNameChange} />
         </label>
         {/* <input type="submit" value="Submit" /> */}
 
         <label>
-          Password:
+          PASSWORD:
           <input type="text" value={this.state.password} onChange={this.handlePasswordChange} />
         </label>
         {/* <input type="submit" value="Submit" /> */}
 
         <label>
-          About:
+          ABOUT:
           <textarea type="text" value={this.state.about} onChange={this.handleAboutChange} ></textarea>
         </label>
         <input type="submit" value="Submit" />

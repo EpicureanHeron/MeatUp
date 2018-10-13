@@ -1,17 +1,35 @@
-import React from "react";
+import React, { Component } from "react";
 import AboutMe from "../../Components/AboutMe";
 import MyRecipe from "../../Components/MyRecipe";
-import UserPic from "../../Components/UserPic";
+import ImageLoader from "../../Components/ImageLoader";
 import "./Profile.css";
 
-const Profile = () => (
-    <div>
-        <UserPic></UserPic>
-        <AboutMe></AboutMe>
-        <MyRecipe></MyRecipe>
-    </div>
+class Profile extends Component {
+    
+    state={
+        aboutText: '',
+    }
 
-);
+    handleAboutChange = data => {
+        this.setState({ aboutText: data })
+        console.log(data);
+    }
+
+    render() {
+        return (
+            <div>
+                <ImageLoader></ImageLoader>
+                <AboutMe handleAboutChange={this.handleAboutChange}></AboutMe>
+                <MyRecipe></MyRecipe>
+                { this.state.aboutText }
+            </div> 
+
+            
+
+        )
+    }
+
+};
 
 
 
