@@ -6,15 +6,12 @@ import MyProfile from "../MyProfile";
 
 const Main = () => (
     <div>
-        <MyProfile>
-            <h1>PROFILE PIC GOES HERE</h1>
-        </MyProfile>
-        <AboutMe>
-            <h1>BLURB GOES HERE</h1>
-        </AboutMe>
-        <MyRecipe>
-            <h1>RECIPE SECTION GOES HERE</h1>
-        </MyRecipe>
+        <MyProfile></MyProfile>
+        <AboutMe></AboutMe>
+            {
+                <span>x</span>
+            }
+        <MyRecipe></MyRecipe>
     </div>
 
 );

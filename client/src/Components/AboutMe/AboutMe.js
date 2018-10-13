@@ -1,42 +1,51 @@
 import React from "react";
-import "./AboutMe.css";
+
 
 class AboutMe extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        value: 'Tell us a little about yourself.'
-      };
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-  
-    handleSubmit(event) {
-      alert('An essay was submitted: ' + this.state.value);
-      event.preventDefault();
-    }
-  
-    render() {
-      return (
-        <div className="example">
-          <form onSubmit={this.handleSubmit}>
-            <span>ABOUT ME</span>
-              <textarea value={this.state.value} onChange={this.handleChange} cols={40} rows={10} />
-            <input type="submit" value="Submit" />
-          </form>
-        </div>
-      );
-    }
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+
+        <label>
+          Password:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+
+        <label>
+          About:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+
+
   
-  // ReactDOM.render(
-  //   <EssayForm />,
-  //   document.getElementById('app')
-  // );
+
 
   export default AboutMe;

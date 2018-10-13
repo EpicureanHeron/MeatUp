@@ -1,43 +1,54 @@
 import React from "react";
-// import API from "../../utils/API";
+import API from "../../utils/API";
+
 
 
 class MyRecipe extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        value: 'What is your favorite recipe? Go ahead and write it down here.'
-      };
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-    // Grabbing data from forms and passing that to api.saveRecipe
-    handleSubmit(event) {
-      alert('An essay was submitted: ' + this.state.value);
-      event.preventDefault();
-    }
-  
-    render() {
-      return (
-        <div className="example">
-          <form onSubmit={this.handleSubmit}>
-            <span>MY RECIPES</span>
-              <textarea value={this.state.value} onChange={this.handleChange} cols={40} rows={10} />
-            <input type="submit" value="Submit" />
-          </form>
-        </div>
-      );
-    }
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Recipe Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+        <label>
+          Description:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+        <label>
+          Ingredients:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+        <label>
+          Primary Meats:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
   
-  // ReactDOM.render(
-  //   <EssayForm />,
-  //   document.getElementById('app')
-  // );
+
 
   export default MyRecipe;
