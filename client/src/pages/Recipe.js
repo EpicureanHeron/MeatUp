@@ -5,16 +5,22 @@ import TopMeat from "../components/TopMeat";
 
 
 class Recipe extends Component {
-  state = {
-    _id: "",
-    user: "",
-    recipeName: "",
-    image: "",
-    description: "",
-    indgredients: "",
-    primaryMeat: "",
-    count: 0
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      _id: "",
+      user: "",
+      recipeName: "",
+      image: "",
+      description: "",
+      indgredients: "",
+      primaryMeat: "",
+      count: 0
+    };
+
+    this.handleBtnClick = this.handleBtnClick.bind(this);
+  }
+  
 
   // When the component mounts, load the next recipie to be displayed
   componentDidMount() {
@@ -26,50 +32,37 @@ class Recipe extends Component {
     const btnType = event.target.attributes.getNamedItem("data-value").value;
     // Clone this.state to the newState object
     // We'll modify this object and use it to set our component's state
-    const newState = { ...this.state };
-
-    if (btnType === "pick") {
-      // Update recipe count depending on wether or not the user likes the meat
-      newState.count += 1
-      console.log(newState.count);
-      console.log(this.state.count);
-      console.log(this.state._id);
-
+    if (btnType === 'pick') {
+      this.setState({count: this.state.count + 1}, () => this.updateCount(1).then(this.loadNextRecipe))
     } else {
-      // If we thumbs down'ed the Meat, we haven't matched with it
-      newState.count -= 1;
+      this.setState({count: this.state.count - 1}, () => this.updateCount(-1).then(this.loadNextRecipe))
     }
-    // Replace our component's state with newState, load the next recipe image
-    this.setState(newState);
-    this.loadNextRecipe();
   };
 
-  updateCount = () => {
+  updateCount = plusorminus => {
+    console.log(this.state, ' from updateCount')
+    return API.updateRecipe(this.state._id, plusorminus)
 
-    API.updateRecipe()
-    .then(req => {
-      let index = req.data.count;
-      this.setState({
-        _id: req.data[index].count
-      })
-    })
-    
+      
   }
 
   loadNextRecipe = () => {
     
-    API.getAllRecipes()
+    return API.getAllRecipes()
       .then(res => {
         let index = Math.floor(Math.random() * res.data.length);
      this.setState({
-       image: res.data[index].image
+       image: res.data[index].image,
+       _id: res.data[index]._id,
       });
+      
     })
+    
   }
 
   // loadTopFive = () => {
 
-  //   API.getAllRecipes()
+  //   return API.getAllRecipes()
   //      .then(res => {
   //        let index = Math.floor(Math.random() - res.data.length);
   //         this.setState({
@@ -85,7 +78,7 @@ class Recipe extends Component {
         <h3 className="text-center">
           Like some meat
         </h3>
-        <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
+        <Card image={this.state.image} handleBtnClick={this.handleBtnClick} id={this.state._id}/>
         <h1 className="text-center">
           You've liked {this.state.count} meats!
         </h1>
@@ -96,6 +89,7 @@ class Recipe extends Component {
       </div>
     );
   }
+
 }
 
 export default Recipe
