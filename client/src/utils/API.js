@@ -1,23 +1,6 @@
 import axios from "axios";
 
-// Export an object containing methods we'll use for accessing the Dog.Ceo API
-
-// export default {
-  
-//   getDogsOfBreed: function(breed) {
-//     return axios.get("https://dog.ceo/api/breed/" + breed + "/images");
-//   },
-//   getBaseBreedsList: function() {
-//     return axios.get("https://dog.ceo/api/breeds/list");
-//   }
-// };
-
-
 export default {
-    // RECIPES API CALLS
-    getRandomDog: function() {
-        return axios.get("https://dog.ceo/api/breeds/image/random");
-      },
 
     //Gets all recipes
     getAllRecipes: function () {
@@ -37,8 +20,9 @@ export default {
         return axios.post("/api/recipes/", recipeJSON);
     },
     // Updates recipe based on the MongoDB passed to it 
-    updateRecipe: function (id, update) {
-        return axios.put("/api/recipes/" + id, update);
+    updateRecipe: function (id, plusorminus) {
+        const incrementOrDecrement = plusorminus === 1 ? 'increment' : 'decrement'
+        return axios.put("/api/recipes/" + id + '/' + incrementOrDecrement);
     },
 
     // USERS API CALLS
