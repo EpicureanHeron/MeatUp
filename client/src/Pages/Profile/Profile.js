@@ -8,6 +8,7 @@ class Profile extends Component {
     
     state={
         aboutText: '',
+        descriptionText: ''
     }
 
     handleAboutChange = data => {
@@ -15,22 +16,28 @@ class Profile extends Component {
         console.log(data);
     }
 
+    handleDescriptionChange = data => {
+        this.setState({ descriptionText: data })
+    }
+
     render() {
         return (
             <div>
+            <div>
                 <ImageLoader></ImageLoader>
                 <AboutMe handleAboutChange={this.handleAboutChange}></AboutMe>
-                <MyRecipe></MyRecipe>
+                <MyRecipe handleDescriptionChange={this.handleDescriptionChange}></MyRecipe>
+            </div>
+            <div className="content">
                 { this.state.aboutText }
             </div> 
-
-            
-
+            <div className="content">
+                { this.state.descriptionText } 
+            </div>
+            </div>
         )
     }
 
 };
-
-
 
 export default Profile;

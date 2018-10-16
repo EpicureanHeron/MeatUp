@@ -1,3 +1,7 @@
 form {
     margin: 50px 0;
 }
+
+.content {
+    border-style: solid;
+}

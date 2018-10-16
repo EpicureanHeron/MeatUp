@@ -1,13 +1,14 @@
 import React from "react";
 import API from '../../utils/API';
+import axios from "axios";
 
 
 class AboutMe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      password: '',
+      // name: '',
+      // password: '',
       about: ''
     };
 
@@ -19,13 +20,14 @@ class AboutMe extends React.Component {
     this.setState({value: event.target.value});
   }
 
-  handleNameChange = event => {
-    this.setState({name: event.target.value})
-  }
+  // handleNameChange = event => {
+  //   this.setState({name: event.target.name})
+  // }
 
-  handlePasswordChange = event => {
-    this.setState({password: event.target.password})
-  }
+  // handlePasswordChange = event => {
+  //   this.setState({password: event.target.password})
+  // }
+
 
   handleAboutChange = event => {
     this.setState({about: event.target.about})
@@ -46,19 +48,7 @@ class AboutMe extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          NAME:
-          <input type="text" value={this.state.name} onChange={this.handleNameChange} />
-        </label>
-        {/* <input type="submit" value="Submit" /> */}
-
-        <label>
-          PASSWORD:
-          <input type="text" value={this.state.password} onChange={this.handlePasswordChange} />
-        </label>
-        {/* <input type="submit" value="Submit" /> */}
-
-        <label>
-          ABOUT:
+          ABOUT - TELL US A LITTLE ABOUT YOURSELF:
           <textarea type="text" value={this.state.about} onChange={this.handleAboutChange} ></textarea>
         </label>
         <input type="submit" value="Submit" />

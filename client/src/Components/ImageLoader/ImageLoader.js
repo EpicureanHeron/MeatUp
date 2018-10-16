@@ -20,6 +20,7 @@ class ImageLoader extends React.Component {
         return (
             <ImageUploader
                 withIcon={true}
+                className='UserPic'
                 buttonText='Choose images'
                 onChange={this.onDrop}
                 imgExtension={['.jpg', '.gif', '.png', '.gif']}
