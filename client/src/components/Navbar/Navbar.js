@@ -11,7 +11,8 @@ import API from "../../utils/API"
 class Navbar extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    authToken: '',
   };
 
   handleInputChange = event => {
