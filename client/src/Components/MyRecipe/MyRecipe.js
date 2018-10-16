@@ -21,9 +21,7 @@ class MyRecipe extends React.Component {
     this.setState({value: event.target.value});
   }
 
-  // handleRecipeNameChange = event => {
-  //   this.setState({recipeName: event.target.recipeName})
-  // }
+  
 
   handleDescriptionChange = event => {
     this.setState({description: event.target.description});
@@ -31,13 +29,7 @@ class MyRecipe extends React.Component {
     this.props.handleDescriptionChange(event.target.value)
   }
 
-  // handleIngredientsChange = event => {
-  //   this.setState({ingredients: event.target.ingredients});
-  // }
-
-  // handlePrimaryMeatsChange = event => {
-  //   this.setState({primaryMeats: event.target.primaryMeats});
-  // }
+  
 
   handleSubmit(event) {
     event.preventDefault();
@@ -50,7 +42,7 @@ class MyRecipe extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          MY RECIPE - PROVIDE THE NAME AND BRIEF DESCRIPTION OF YOUR FAVORITE RECIPE:
+          PROVIDE THE NAME AND BRIEF DESCRIPTION OF YOUR FAVORITE RECIPE:
           <textarea type="text" value={this.state.description} onChange={this.handleDescriptionChange} ></ textarea>
         </label>
         <input type="submit" value="Submit" />
@@ -59,6 +51,20 @@ class MyRecipe extends React.Component {
   }
 }
   
-
-
   export default MyRecipe;
+
+
+// FOR REFERENCE ONLY:
+
+// handleRecipeNameChange = event => {
+  //   this.setState({recipeName: event.target.recipeName})
+  // }
+
+  // handleIngredientsChange = event => {
+  //   this.setState({ingredients: event.target.ingredients});
+  // }
+
+  // handlePrimaryMeatsChange = event => {
+  //   this.setState({primaryMeats: event.target.primaryMeats});
+  // }
+

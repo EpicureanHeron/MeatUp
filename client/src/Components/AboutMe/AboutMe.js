@@ -20,15 +20,6 @@ class AboutMe extends React.Component {
     this.setState({value: event.target.value});
   }
 
-  // handleNameChange = event => {
-  //   this.setState({name: event.target.name})
-  // }
-
-  // handlePasswordChange = event => {
-  //   this.setState({password: event.target.password})
-  // }
-
-
   handleAboutChange = event => {
     this.setState({about: event.target.about})
     console.log("Changed!");
@@ -36,7 +27,6 @@ class AboutMe extends React.Component {
   }
 
   handleSubmit(event) {
-    // alert('A name was submitted: ' + this.state.name + ' \n');
 
     event.preventDefault();
     API.saveUser({username: this.state.name, password: this.state.password, about: this.state.about})
@@ -48,7 +38,7 @@ class AboutMe extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          ABOUT - TELL US A LITTLE ABOUT YOURSELF:
+          TELL US A LITTLE ABOUT YOURSELF:
           <textarea type="text" value={this.state.about} onChange={this.handleAboutChange} ></textarea>
         </label>
         <input type="submit" value="Submit" />
@@ -57,8 +47,15 @@ class AboutMe extends React.Component {
   }
 }
 
-
-  
-
-
   export default AboutMe;
+
+
+// FOR REFERENCE ONLY:
+
+// handleNameChange = event => {
+  //   this.setState({name: event.target.name})
+  // }
+
+  // handlePasswordChange = event => {
+  //   this.setState({password: event.target.password})
+  // }
