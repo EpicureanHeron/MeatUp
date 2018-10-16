@@ -63,8 +63,6 @@ class Recipe extends Component {
   // loadTopFive = () => {
 
   //   return API.getAllRecipes()
-  //      .then(res => {
-  //        let index = Math.floor(Math.random() - res.data.length);
   //         this.setState({
   //           count: res.data[index].count 
   //     })
