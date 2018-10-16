@@ -1,18 +1,12 @@
 import React, { Component } from "react";
-
-import { Link } from "react-router-dom";
 import "./Navbar.css";
-
-//test
-
 import API from "../../utils/API"
 
 
 class Navbar extends Component {
   state = {
     username: "",
-    password: "",
-    authToken: '',
+    password: ""
   };
 
   handleInputChange = event => {
@@ -62,53 +56,21 @@ class Navbar extends Component {
   };
 
 
-
-// Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-render = props =>(
+render = props =>
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <Link className="navbar-brand" to="/">
-      MeatUp
-    </Link>
-    <div>
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <Link
-            to="/"
-            className={
-              window.location.pathname === "/" || window.location.pathname === "/home"
-                ? "nav-link active"
-                : "nav-link"
-            }
-          >
-            Home
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            to="/recipe"
-            className={
-              window.location.pathname === "/recipe"
-                ? "nav-link active"
-                : "nav-link"
-            }
-          >
-            Recipie Like 
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            to="/profile"
-            className={
-              window.location.pathname === "/profile"
-                ? "nav-link active"
-                : "nav-link"
-            }
-          >
-            Profile
-          </Link>
-        </li>
-      </ul>
-      <form className="form">
+    <a className="navbar-brand" href="#">Navbar</a>
+    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div className="navbar-nav">
+        <a className="nav-item nav-link active" href="#">Home <span className="sr-only">(current)</span></a>
+        <a className="nav-item nav-link" href="#">Features</a>
+        <a className="nav-item nav-link" href="#">Pricing</a>
+        <a className="nav-item nav-link disabled" href="#">Disabled</a>
+      </div>
+    </div>
+    <form className="form">
           <input
             value={this.state.username}
             name="username"
@@ -126,9 +88,8 @@ render = props =>(
           />
           <button className='btn btn-primary' onClick={this.handleFormSubmit}>Submit</button>
         </form>
-    </div>
   </nav>
-)}
+}
+  ;
 
 export default Navbar;
-
