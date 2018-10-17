@@ -1,7 +1,5 @@
 const db = require("../models");
 
-
-
 // Defining methods for the Article
 module.exports = {
 
@@ -64,11 +62,21 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  updateRecipe: function(req, res) {
-    db.Recipe
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  updateRecipeLikeCount: function(req, res) {
+    db.Recipe.findById(req.params.id, function(err, recipe) {
+      if (err) throw err;
+      if (req.params.incrementOrDecrement === 'increment') {
+        recipe.count += 1;
+      } else if (req.params.incrementOrDecrement === 'decrement') {
+        recipe.count -= 1;
+      }
+      recipe.save(err => {
+        if (err) throw err;
+        console.log('recipe decremented!')
+      })
+    })
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
   },
   removeRecipe: function(req, res) {
     db.Recipe
@@ -76,6 +84,11 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
+  // sortTopRecipe: function(req, res){
+  //   db.Recipe
+  //     .findByCount(req.params.count)
+  //     .sort()
+  // }
  
 };
