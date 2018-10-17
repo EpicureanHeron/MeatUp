@@ -7,8 +7,9 @@ class AboutMe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // name: '',
-      // password: '',
+      name: '',
+      password: '',
+      image: '',
       about: ''
     };
 
