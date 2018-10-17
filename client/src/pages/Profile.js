@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AboutMe from "../components/AboutMe";
+//import AboutMe from "../components/AboutMe";
 import MyRecipe from "../components/MyRecipe";
 import ImageLoader from "../components/ImageLoader";
 import "./Profile.css"
@@ -25,7 +25,7 @@ class Profile extends Component {
             <div>
             <div>
                 <ImageLoader></ImageLoader>
-                <AboutMe handleAboutChange={this.handleAboutChange}></AboutMe>
+                {/* <AboutMe handleAboutChange={this.handleAboutChange}></AboutMe> */}
                 <MyRecipe handleDescriptionChange={this.handleDescriptionChange}></MyRecipe>
             </div>
             <div className="content">
