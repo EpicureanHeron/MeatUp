@@ -24,7 +24,22 @@ class Recipe extends Component {
 
   // When the component mounts, load the next recipie to be displayed
   componentDidMount() {
+    this.getTopFiveRecipes();
     this.loadNextRecipe();
+  }
+
+  getTopFiveRecipes = () => {
+    const sortByMostLikes = function(recipe1, recipe2) {
+      return recipe1.count - recipe2.count
+    }
+    API.getAllRecipes()
+    .then(({data: recipes}) => (
+      console.log(recipes),
+      recipes.sort(sortByMostLikes)
+      .reverse()
+      .slice(0, 5)
+    ))
+    .then(topFive => this.setState({topFive}))
   }
 
   handleBtnClick = event => {
@@ -60,15 +75,6 @@ class Recipe extends Component {
     
   }
 
-  // loadTopFive = () => {
-
-  //   return API.getAllRecipes()
-  //         this.setState({
-  //           count: res.data[index].count 
-  //     })
-  //      })
-
-  // }
   render() {
     return (
       <div>
@@ -82,6 +88,7 @@ class Recipe extends Component {
         </h1>
         <h1>
           These are the Top 5 Meatcipes!
+          {this.state.topFive ? <ul>{this.state.topFive.map(recipe => <li><p>{recipe.recipeName}</p><img src={recipe.image} /></li>)}</ul> : null}
         <TopMeat image={this.state.image} />
         </h1>
       </div>
