@@ -45,7 +45,7 @@ class Recipe extends Component {
   }
 
   handleBtnClick = event => {
-
+    let type = 'like'
     // Get the data-value of the clicked button
     // console.log(event)
     // console.log(event.target)
