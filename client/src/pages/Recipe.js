@@ -24,7 +24,22 @@ class Recipe extends Component {
 
   // When the component mounts, load the next recipie to be displayed
   componentDidMount() {
+    this.getTopFiveRecipes();
     this.loadNextRecipe();
+  }
+
+  getTopFiveRecipes = () => {
+    const sortByMostLikes = function(recipe1, recipe2) {
+      return recipe1.count - recipe2.count
+    }
+    API.getAllRecipes()
+    .then(({data: recipes}) => (
+      console.log(recipes),
+      recipes.sort(sortByMostLikes)
+      .reverse()
+      .slice(0, 5)
+    ))
+    .then(topFive => this.setState({topFive}))
   }
 
   handleBtnClick = event => {
@@ -37,31 +52,6 @@ class Recipe extends Component {
     } else {
       this.setState({count: this.state.count - 1}, () => this.updateCount(-1).then(this.loadNextRecipe))
     }
-    // this.setState({
-    //   count: btnType === 'pick' ? this.state.count + 1 : this.state.count - 1
-    // }, () => {
-    //   this.updateCount()
-    //   .then(this.loadNextRecipe)
-    // })
-    // let newState = { ...this.state };
-
-    // if (btnType === "pick") {
-    //   // Update recipe count depending on wether or not the user likes the meat
-    //   newState.count += 1;
-    //   console.log(newState.count);
-    //   console.log(this.state.count);
-    //   console.log(this.state._id);
-      
-    // } else {
-    //   // If we thumbs down'ed the Meat, we haven't matched with it
-    //   newState.count -= 1;
-    //   console.log(newState.count);
-    //   console.log(this.state.count);
-    //   console.log(this.state._id);
-    // }
-    // // Replace our component's state with newState, load the next recipe image
-    // this.setState({count: newState.count});
-    // this.loadNextRecipe();
   };
 
   updateCount = plusorminus => {
@@ -79,30 +69,18 @@ class Recipe extends Component {
      this.setState({
        image: res.data[index].image,
        _id: res.data[index]._id,
-      //  count: res.data[index].count
       });
       
     })
     
   }
 
-  loadTopFive = () => {
-
-    API.getAllRecipes()
-       .then(res => {
-         let index = Math.floor(Math.random() - res.data.length);
-          this.setState({
-            count: res.data[index].count 
-      })
-       })
-
-  }
   render() {
     return (
       <div>
         <h1 className="text-center">MeatUp</h1>
         <h3 className="text-center">
-          Like some meat
+          Like Some Meat!
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} id={this.state._id}/>
         <h1 className="text-center">
@@ -110,6 +88,7 @@ class Recipe extends Component {
         </h1>
         <h1>
           These are the Top 5 Meatcipes!
+          {this.state.topFive ? <ul>{this.state.topFive.map(recipe => <li><p>{recipe.recipeName}</p><img src={recipe.image} /></li>)}</ul> : null}
         <TopMeat image={this.state.image} />
         </h1>
       </div>
