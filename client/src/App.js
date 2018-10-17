@@ -1,16 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Discover from "./pages/Discover";
+import Recipe from "./pages/Recipe";
 import About from "./pages/About";
-import Search from "./pages/Search";
-import Home from "./pages/Home"
+import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
-import RecipeSearch from "./components/RecipeSearch/RecipeSearch.js";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import Chat from "./components/Chat";
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const App = () => (
   <Router>
     <div>
@@ -19,10 +17,11 @@ const App = () => (
       <Wrapper>
         <Route exact path="/" component={About} />
         <Route exact path="/about" component={About} />
-        <Route exact path="/discover" component={Discover} />
-        <Route exact path="/search/:recipe" component={Search} />
+        <Route exact path="/recipe" component={Recipe} />
         <Route exact path="/home" component={Home} />
       </Wrapper>
+      <Chat>
+      </Chat>
       <Footer />
     </div>
   </Router>
