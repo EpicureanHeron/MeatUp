@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Recipe from "./pages/Recipe";
 import About from "./pages/About";
 import Home from "./pages/Home";
-import Prile from "./Pages/"
+import Profile from "./Pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
@@ -17,7 +17,7 @@ const App = () => (
       <Navbar />
       <Wrapper>
         <Route exact path="/" component={About} />
-        <Route exact path="/Profile" component={Profile} />
+        <Route exact path="/profile" component={Profile} />
         <Route exact path="/about" component={About} />
         <Route exact path="/recipe" component={Recipe} />
         <Route exact path="/home" component={Home} />
