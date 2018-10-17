@@ -14,17 +14,7 @@ server = app.listen(5000, function(){
 
 io = socket(server);
 
-io.on('connection', (socket) => {
-    console.log(socket.id);
 
-    socket.on('SEND_MESSAGE', function(data){
-        io.emit('RECEIVE_MESSAGE', data);
-    })
-});
-// Use morgan logger for logging requests
-// app.use(logger("dev"));
-
-//
 // Use body-parser for handling form submissions
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,6 +28,7 @@ if (process.env.NODE_ENV === "production") {
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/MeatUp";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
+
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
