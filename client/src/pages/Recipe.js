@@ -37,33 +37,7 @@ class Recipe extends Component {
     } else {
       this.setState({count: this.state.count - 1}, () => this.updateCount(-1).then(this.loadNextRecipe))
     }
-    // this.setState({
-    //   count: btnType === 'pick' ? this.state.count + 1 : this.state.count - 1
-    // }, () => {
-    //   this.updateCount()
-    //   .then(this.loadNextRecipe)
-    // })
-    // let newState = { ...this.state };
-
-    // if (btnType === "pick") {
-    //   // Update recipe count depending on wether or not the user likes the meat
-    //   newState.count += 1;
-    //   console.log(newState.count);
-    //   console.log(this.state.count);
-    //   console.log(this.state._id);
-      
-    // } else {
-    //   // If we thumbs down'ed the Meat, we haven't matched with it
-    //   newState.count -= 1;
-    //   console.log(newState.count);
-    //   console.log(this.state.count);
-    //   console.log(this.state._id);
-    // }
-    // // Replace our component's state with newState, load the next recipe image
-    // this.setState({count: newState.count});
-    // this.loadNextRecipe();
-  };
-
+ 
   updateCount = plusorminus => {
     console.log(this.state, ' from updateCount')
     return API.updateRecipe(this.state._id, plusorminus)
