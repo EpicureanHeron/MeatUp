@@ -7,6 +7,7 @@ import Prile from "./Pages/"
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
+import Chat from "./components/Chat";
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -21,6 +22,8 @@ const App = () => (
         <Route exact path="/recipe" component={Recipe} />
         <Route exact path="/home" component={Home} />
       </Wrapper>
+      <Chat>
+      </Chat>
       <Footer />
     </div>
   </Router>
