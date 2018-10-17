@@ -4,6 +4,7 @@ import Card from "../components/Card";
 import TopMeat from "../components/TopMeat";
 
 
+
 class Recipe extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +29,7 @@ class Recipe extends Component {
     this.loadNextRecipe();
   }
 
+
   getTopFiveRecipes = () => {
     const sortByMostLikes = function(recipe1, recipe2) {
       return recipe1.count - recipe2.count
@@ -43,22 +45,27 @@ class Recipe extends Component {
   }
 
   handleBtnClick = event => {
+
     // Get the data-value of the clicked button
-    const btnType = event.target.attributes.getNamedItem("data-value").value;
+    // console.log(event)
+    // console.log(event.target)
+    // console.log(event.target.attributes)
+    // const btnType = event.target.attributes.getNamedItem("data-value").value;
     // Clone this.state to the newState object
     // We'll modify this object and use it to set our component's state
-    if (btnType === 'pick') {
+    if (type === 'like') {
       this.setState({count: this.state.count + 1}, () => this.updateCount(1).then(this.loadNextRecipe))
-    } else {
+    } else if (type === 'dislike') {
       this.setState({count: this.state.count - 1}, () => this.updateCount(-1).then(this.loadNextRecipe))
     }
   };
+  handleLike = e => this.handleBtnClick('like')
+  handleDislike = e => this.handleBtnClick('dislike')
+
 
   updateCount = plusorminus => {
     console.log(this.state, ' from updateCount')
     return API.updateRecipe(this.state._id, plusorminus)
-
-      
   }
 
   loadNextRecipe = () => {
@@ -70,10 +77,10 @@ class Recipe extends Component {
        image: res.data[index].image,
        _id: res.data[index]._id,
       });
-      
     })
-    
   }
+
+
 
   render() {
     return (
@@ -82,11 +89,12 @@ class Recipe extends Component {
         <h3 className="text-center">
           Like Some Meat!
         </h3>
-        <Card image={this.state.image} handleBtnClick={this.handleBtnClick} id={this.state._id}/>
+        <Card image={this.state.image} handleLike={this.handleLike} handleDislike={this.handleDislike} id={this.state._id}/>
         <h1 className="text-center">
           You've liked {this.state.count} meats!
         </h1>
-        <h1>
+        <br></br>
+        <h1 className="text-center">
           These are the Top 5 Meatcipes!
           {this.state.topFive ? <ul>{this.state.topFive.map(recipe => <li><p>{recipe.recipeName}</p><img src={recipe.image} /></li>)}</ul> : null}
         <TopMeat image={this.state.image} />
