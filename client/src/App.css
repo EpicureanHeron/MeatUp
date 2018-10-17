@@ -1,0 +1,22 @@
+html, body, #root, #root > div, div[data-reactroot] {
+  overflow: scroll;
+}
+
+body {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsGRIc9iiiVlvgv2PoQoQ7VjS-PQT2AGvDYaTUkQysQ-mHkuA0uA");
+  background-size: 20%;
+
+}
+
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+label {
+  background-color: white;
+  padding: 15px;
+}
+
+
+

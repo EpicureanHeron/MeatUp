@@ -2,12 +2,17 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
-
+var socket = require('socket.io');
 var mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Define middleware here
+server = app.listen(5000, function(){
+    console.log('server is running on port 5000')
+});
+
+io = socket(server);
 
 
 // Use body-parser for handling form submissions
