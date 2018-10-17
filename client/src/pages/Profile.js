@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AboutMe from "../components/AboutMe";
+import AboutMe from "../components/AboutMe"
 import MyRecipe from "../components/MyRecipe";
 import ImageLoader from "../components/ImageLoader";
 import "./Profile.css"
