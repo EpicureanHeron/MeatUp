@@ -74,7 +74,7 @@ class Recipe extends Component {
       <div>
         <h1 className="text-center">MeatUp</h1>
         <h3 className="text-center">
-          Like some meat
+          Like Some Meat!
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} id={this.state._id}/>
         <h1 className="text-center">
