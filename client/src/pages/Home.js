@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-// import API from "../utils/API";
-// import Card from "../components/Card";
-// import Alert from "../components/Alert";
+import API from "../utils/API";
+import Card from "../components/Card";
+import Alert from "../components/Alert";
 
 class Home extends Component {
     state = {
@@ -18,7 +18,7 @@ class Home extends Component {
         return (
           <div>
             <h1 className="text-center">Home page</h1>
-            {/* <h3 className="text-center">
+            <h3 className="text-center">
               Thumbs up on any pups you'd like to meet!
             </h3>
             <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
@@ -27,7 +27,7 @@ class Home extends Component {
             </h1>
             <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
               Yay! That Pup Liked You Too!!!
-            </Alert> */}
+            </Alert>
           </div>
         );
       }
