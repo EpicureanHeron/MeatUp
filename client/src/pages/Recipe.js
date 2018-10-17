@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import Card from "../components/Card";
-import TopMeat from "../components/TopMeat";
+import Card from "../Components/Card";
+import TopMeat from "../Components/TopMeat";
 
 
 class Recipe extends Component {
