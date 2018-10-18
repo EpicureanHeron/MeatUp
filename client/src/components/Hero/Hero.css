@@ -1,12 +1,15 @@
+#root {
+  overflow: scroll;
+}
 .hero {
-  height: 500px;
+  height: 750px;
   /* background-image: url("./pics/meatup1-01.png"); */
   background-size: cover;
   background-position: center;
-  position: relative;
+  /* position: relative; */
 }
 
-.hero::after {
+/* .hero::after {
   content: "";
   display: block;
   opacity: .4;
@@ -16,19 +19,19 @@
   left: 0;
   right: 0;
   background: black;
-}
+} */
 
-.hero * {
+/* .hero * {
   position: relative;
   z-index: 2;
-}
+} */
 
-.hero h1, .hero h2 {
+/* .hero h1, .hero h2 {
   color: white;
-}
+} */
 
-.hero h1 {
+/* .hero h1 {
   font-size: 60px;
   padding-top: 140px;
   margin-top: 0;
-}
+} */
