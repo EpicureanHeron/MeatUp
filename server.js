@@ -2,17 +2,19 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
-
+var socket = require('socket.io');
 var mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Define middleware here
+server = app.listen(5000, function(){
+    console.log('server is running on port 5000')
+});
 
-// Use morgan logger for logging requests
-// app.use(logger("dev"));
+io = socket(server);
 
-//
+
 // Use body-parser for handling form submissions
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +28,7 @@ if (process.env.NODE_ENV === "production") {
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/MeatUp";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
+
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);

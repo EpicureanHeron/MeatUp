@@ -25,12 +25,27 @@ class Recipe extends Component {
 
   // When the component mounts, load the next recipie to be displayed
   componentDidMount() {
+    this.getTopFiveRecipes();
     this.loadNextRecipe();
   }
 
-  handleBtnClick = type => {
-    // event.preventDefault()
-    console.log(type)
+
+  getTopFiveRecipes = () => {
+    const sortByMostLikes = function(recipe1, recipe2) {
+      return recipe1.count - recipe2.count
+    }
+    API.getAllRecipes()
+    .then(({data: recipes}) => (
+      console.log(recipes),
+      recipes.sort(sortByMostLikes)
+      .reverse()
+      .slice(0, 5)
+    ))
+    .then(topFive => this.setState({topFive}))
+  }
+
+  handleBtnClick = event => {
+    let type = 'like'
     // Get the data-value of the clicked button
     // console.log(event)
     // console.log(event.target)
@@ -61,32 +76,18 @@ class Recipe extends Component {
      this.setState({
        image: res.data[index].image,
        _id: res.data[index]._id,
-      //  count: res.data[index].count
       });
     })
   }
 
-  loadTopFive = () => {
 
-    API.getAllRecipes()
-       .then(res => {
-         let index = Math.floor(Math.random() - res.data.length);
-          this.setState({
-            count: res.data[index].count 
-      })
-       })
-
-  }
-
-  
-  
 
   render() {
     return (
       <div>
         <h1 className="text-center">MeatUp</h1>
         <h3 className="text-center">
-          Like some meat
+          Like Some Meat!
         </h3>
         <Card image={this.state.image} handleLike={this.handleLike} handleDislike={this.handleDislike} id={this.state._id}/>
         <h1 className="text-center">
@@ -95,6 +96,7 @@ class Recipe extends Component {
         <br></br>
         <h1 className="text-center">
           These are the Top 5 Meatcipes!
+          {this.state.topFive ? <ul>{this.state.topFive.map(recipe => <li><p>{recipe.recipeName}</p><img src={recipe.image} /></li>)}</ul> : null}
         <TopMeat image={this.state.image} />
         </h1>
       </div>
