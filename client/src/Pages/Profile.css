@@ -1,0 +1,26 @@
+
+form {
+    margin: 10px;
+}
+
+.content {
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    /* margin: 7px; */
+    width: 600px;
+}
+
+.image {
+    width: 240px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 10;
+    border: solid black;
+}
