@@ -8,13 +8,14 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import Chat from "./components/Chat";
+import RecipeSearch from "./components/RecipeSearch"
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 const App = () => (
   <Router>
     <div>
       <Navbar />
+      <RecipeSearch />
       <Wrapper>
         <Route exact path="/" component={About} />
         <Route exact path="/profile" component={Profile} />

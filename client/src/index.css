@@ -1,4 +1,4 @@
-* {
+/* {
   box-sizing: border-box;
 }
 
@@ -9,6 +9,4 @@ body,
 div[data-reactroot] {
   height: 100%;
   padding: 0;
-  margin: 0;
-  overflow: scroll;
-}
+  margin: 0; */
