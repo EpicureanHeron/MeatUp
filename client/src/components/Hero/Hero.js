@@ -1,4 +1,5 @@
 import React from "react";
+// import "../public/pics/meats";
 import "./Hero.css";
 
 const Hero = props => (

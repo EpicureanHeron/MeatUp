@@ -5,19 +5,21 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import "./About.css";
 
+const meatPath = process.env.PUBLIC_URL + '/pics/meats'
+
 const About = () => (
   <div>
-    <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg">
-      <h1>MeatUp!</h1>
-      <h2>Find meat and other things to eat!</h2>
+    <Hero backgroundImage={`${meatPath}/meatup2-01.png`}>
+      <h1></h1>
+      <h2></h2>
     </Hero>
     <Container style={{ marginTop: 30 }}>
       <Row>
         <Col size="md-12">
-          <h1>It's Juicy!</h1>
+          <h1></h1>
         </Col>
       </Row>
-      <Row>
+      {/* <Row>
         <Col size="md-12">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet diam tortor, id
@@ -54,7 +56,7 @@ const About = () => (
             pulvinar eu. Quisque vitae quam dapibus, vestibulum mauris quis, laoreet massa.
           </p>
         </Col>
-      </Row>
+      </Row> */}
     </Container>
   </div>
 );

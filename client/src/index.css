@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+
+.Collapsible__trigger .Collapsible__contentInner {
+  display: none;
+}
 html,
 body,
 #root,

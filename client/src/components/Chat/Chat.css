@@ -13,7 +13,8 @@
 }
 
 .card {
-    height: 250px;
+    margin-top: 5px;
+    height: 350px;
     width: 450px;
     background-image: url("https://www.incimages.com/uploaded_files/image/970x450/getty_80116649_344560.jpg");
     background-size: 100%;
@@ -24,9 +25,10 @@
     font-weight: bold;
     font-size: 30px;
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    float: left;
+    bottom: 20%;
+    left: 0%;
+    overflow: scroll;
 }
 
 .messages  * {
@@ -44,7 +46,10 @@
   }
 
 .btn {
-    position: fixed;
-    float: right;
+    /* position: fixed; */
+    float: left;
+    bottom: 21%;
+    width: 100px;
+    left: 13%;
 
 }

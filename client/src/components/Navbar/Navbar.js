@@ -31,7 +31,7 @@ const Navbar = props => (
                 : "nav-link"
             }
           >
-            Recipie Like 
+            Recipe Like 
           </Link>
         </li>
         <li className="nav-item">
