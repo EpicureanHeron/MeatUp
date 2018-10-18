@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Recipe from "./Pages/Recipe";
-import About from "./Pages/About";
-import Home from "./Pages/Home";
-import Profile from "./Pages/Profile";
-import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
-import Wrapper from "./Components/Wrapper";
-import Chat from "./Components/Chat";
-import RecipeSearch from "./Components/RecipeSearch"
+import Recipe from "./pages/Recipe";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Wrapper from "./components/Wrapper";
+import Chat from "./components/Chat";
+import RecipeSearch from "./components/RecipeSearch"
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const App = () => (
