@@ -24,9 +24,12 @@ class Profile extends Component {
         return (
             <div>
             <div>
-                <ImageLoader></ImageLoader>
+                {/* <ImageLoader></ImageLoader> */}
                 <AboutMe handleAboutChange={this.handleAboutChange}></AboutMe>
                 <MyRecipe handleDescriptionChange={this.handleDescriptionChange}></MyRecipe>
+            </div>
+            <div>
+                <img className="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdsOiK7l9Poc7FU9wrjEVOXGkBlwKp-dzX1yQElM0WvDdqbr7h"></img>
             </div>
             <div className="content">
                 { this.state.aboutText }

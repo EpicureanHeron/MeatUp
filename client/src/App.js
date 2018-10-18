@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import {CollapsibleComponent, CollapsibleHead, CollapsibleContent} from 'react-collapsible-component';
 import Recipe from "./pages/Recipe";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -8,7 +9,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import Chat from "./components/Chat";
-import RecipeSearch from "./components/RecipeSearch"
+import RecipeSearch from "./components/RecipeSearch";
+import "./App.css";
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const App = () => (
@@ -23,8 +25,13 @@ const App = () => (
         <Route exact path="/recipe" component={Recipe} />
         <Route exact path="/home" component={Home} />
       </Wrapper>
-      <Chat>
-      </Chat>
+      <CollapsibleComponent className="collapsible" trigger="Start Here">
+        <CollapsibleHead>MEAT CHAT</CollapsibleHead>
+          <CollapsibleContent>
+            <Chat>
+            </Chat>
+          </CollapsibleContent>
+      </CollapsibleComponent>
       <Footer />
     </div>
   </Router>
