@@ -97,7 +97,7 @@ class Recipe extends Component {
         <h1 className="text-center">
           These are the Top 5 Meatcipes!
           {this.state.topFive ? <ul>{this.state.topFive.map(recipe => <li><p>{recipe.recipeName}</p><img src={recipe.image} /></li>)}</ul> : null}
-        <TopMeat image={this.state.image} />
+        {/* <TopMeat image={this.state.image} /> */}
         </h1>
       </div>
     );
