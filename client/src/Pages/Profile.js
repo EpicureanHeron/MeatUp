@@ -24,7 +24,7 @@ class Profile extends Component {
         return (
             <div>
             <div>
-                <ImageLoader></ImageLoader>
+                {/* <ImageLoader></ImageLoader> */}
                 <AboutMe handleAboutChange={this.handleAboutChange}></AboutMe>
                 <MyRecipe handleDescriptionChange={this.handleDescriptionChange}></MyRecipe>
             </div>
