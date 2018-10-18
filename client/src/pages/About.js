@@ -1,8 +1,8 @@
 import React from "react";
-import Hero from "../components/Hero";
-import Container from "../components/Container";
-import Row from "../components/Row";
-import Col from "../components/Col";
+import Hero from "../Components/Hero";
+import Container from "../Components/Container";
+import Row from "../Components/Row";
+import Col from "../Components/Col";
 import "./About.css";
 
 const About = () => (
