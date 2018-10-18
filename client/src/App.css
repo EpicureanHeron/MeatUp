@@ -1,6 +1,7 @@
 body {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsGRIc9iiiVlvgv2PoQoQ7VjS-PQT2AGvDYaTUkQysQ-mHkuA0uA");
   background-size: 20%;
+
 }
 
 .content {
@@ -12,6 +13,3 @@ label {
   background-color: white;
   padding: 15px;
 }
-
-
-

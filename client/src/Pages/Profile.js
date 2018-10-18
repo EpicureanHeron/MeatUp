@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import AboutMe from "../../Components/AboutMe";
-import MyRecipe from "../../Components/MyRecipe";
-import ImageLoader from "../../Components/ImageLoader";
-import "./Profile.css";
+import AboutMe from "../components/AboutMe"
+import MyRecipe from "../components/MyRecipe";
+import ImageLoader from "../components/ImageLoader";
+import "./Profile.css"
 
 class Profile extends Component {
     

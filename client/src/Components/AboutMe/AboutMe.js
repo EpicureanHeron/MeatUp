@@ -1,7 +1,5 @@
 import React from "react";
 import API from '../../utils/API';
-import axios from "axios";
-
 
 class AboutMe extends React.Component {
   constructor(props) {
