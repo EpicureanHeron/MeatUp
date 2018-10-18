@@ -1,5 +1,7 @@
 # Create React Express App
 
+Deployed application: https://meatup-medium-rare.herokuapp.com/
+
 ## About This Boilerplate
 
 This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
