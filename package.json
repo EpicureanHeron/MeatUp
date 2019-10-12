@@ -28,7 +28,7 @@
     "express": "^4.17.1",
     "fontawesome": "^4.7.2",
     "if-env": "^1.0.4",
-    "install": "^0.12.2",
+    "install": "^0.13.0",
     "mongoose": "^5.7.4",
     "npm": "^6.4.1",
     "react-collapsible": "^2.3.1",
